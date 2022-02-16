@@ -12,7 +12,6 @@ mongoose.connect("mongodb://127.0.0.1:27017/bookAPI");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use("/api", bookRouter, userRouter);
 
 app.all('/api/*', jwt({
     secret: 'secret',
@@ -20,5 +19,7 @@ app.all('/api/*', jwt({
   }).unless({
     path: ['/api/users/login']
   }));
+
+app.use("/api", bookRouter, userRouter);
 
 app.listen(8080);

@@ -10,8 +10,7 @@ const routes = (User) => {
   const { getUsers, getUserById, getUserByUserName, postUser, putUserById, deleteUserById, login } = userController(User);
 
   userRouter.route('/users')
-    .get(getUsers)
-    .get(validator.query(userQueryValidator), getUserByUserName)
+    .get(validator.query(userQueryValidator), getUsers, getUserByUserName)
     .post(validator.body(userBodyValidator), postUser);
 
   userRouter.route('/users/:userId')

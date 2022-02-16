@@ -2,10 +2,10 @@ const joi = require('joi');
 
 const Schema = joi.alternatives().try(
   joi.object({
-    title: joi.string().required(),
+    title: joi.string(),
   }),
   joi.object({
-    author: joi.string().required(),
+    author: joi.string(),
   })
 );
 

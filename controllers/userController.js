@@ -19,8 +19,8 @@ const userController = (User) => {
   };
   
   const getUserByUserName = async (req, res) => {
-    const {params} = req;
-    const user = await User.findOne({"userName": params.userName});
+    const {query} = req;
+    const user = await User.findOne({userName: query.userName});
     if(user===null)
     {
       res.json("User is not found");

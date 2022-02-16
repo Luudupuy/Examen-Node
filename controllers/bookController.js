@@ -52,8 +52,8 @@ const bookController = (Book) => {
 	};
   
 	const getBooksByName = async (req, res) => {
-	  const {params} = req;
-	  const bookName = await Book.findOne({"title": params.title});
+	  const {query} = req;
+	  const bookName = await Book.findOne({title: query.title});
 		if(bookName===null){
 		   res.json("Title is not found");
 		}
@@ -63,8 +63,8 @@ const bookController = (Book) => {
 	};
   
 	const getBooksByAuthor = async(req,res) => {
-	  const {params} = req;
-	  const bookAuthor = await Book.findOne({"author": params.author});
+	  const {query} = req;
+	  const bookAuthor = await Book.findOne({author: query.author});
 		if(bookAuthor===null){
 		   res.json("Author is not found");
 		}
