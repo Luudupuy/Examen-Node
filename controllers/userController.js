@@ -97,6 +97,7 @@ const userController = (User) => {
       const savedUser = response;
       const token = generateToken(savedUser);
       response = {message:"Ok", token};
+      res.status(200).json(response);
     }
     else{
       res.status(401).json('Invalid credentials')};
